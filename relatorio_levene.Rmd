@@ -1,0 +1,32 @@
+---
+title: "Relatório Levene Test"
+author: "Pedro"
+date: "20/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(car)
+ch4<-read.csv("CH4 - Teste de Levene.csv", sep=";", h=T)
+
+co2<-read.csv("CO2 - Teste de Levene.csv", sep=";", h=T)
+
+n2o<-read.csv("N2O - Teste de Levene.csv", sep=";", h=T)
+```
+
+## CH4
+
+```{r, echo=FALSE}
+leveneTest(ch4$Average.Emission.CH4..mgm.2h.1., ch4$Type.of.Wetland)
+```
+
+## CO2
+```{r, echo=FALSE}
+leveneTest(co2$Average.Emission.CO2..mgm.2h.1., co2$Type.of.Wetland)
+```
+
+## N2O
+```{r, echo=FALSE}
+leveneTest(n2o$Average.Emission.N2O..mgm.2h.1., n2o$Type.of.Wetland)
+```
